@@ -11,77 +11,6 @@
   text-align: center;
 }
 
-.shape-orange-right {
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  display: inline-block;
-  padding: 0;
-  position: relative;
-  float: none;
-  background-color: #263238;
-  text-align: center;
-}
-
-.shape-orange-right::before {
-  content: "";
-  width: 55px;
-  top: 11px;
-  background-color: #263238;
-  left: 3px;
-  height: 2px;
-  display: inline-block;
-  position: absolute;
-  border-radius: 2px;
-}
-
-.shape-orange-right::after {
-  content: "";
-  left: 3px;
-  width: 70px;
-  top: 6px;
-  background-color: #263238;
-  height: 3px;
-  display: inline-block;
-  position: absolute;
-  border-radius: 2px;
-}
-
-.shape-orange-left {
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background-color: #263238;
-  display: inline-block;
-  padding: 0;
-  position: relative;
-  float: none;
-}
-
-.shape-orange-left::before {
-  content: "";
-  right: 3px;
-  width: 55px;
-  top: 11px;
-  height: 2px;
-  background-color: #263238;
-  display: inline-block;
-  position: absolute;
-  border-radius: 2px;
-}
-
-.shape-orange-left::after {
-  right: 3px;
-  width: 70px;
-  top: 6px;
-  content: "";
-  height: 3px;
-  background-color: #263238;
-  display: inline-block;
-  position: absolute;
-  border-radius: 2px;
-}
-
 .highlight {
   color: white;
   font-weight: 600;
@@ -328,4 +257,101 @@ section, .section {
   font-size: 14px;
   line-height: 22px;
   color: #606060;
+}
+
+.bg-dark-section:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  opacity: 0.5;
+}
+
+
+.bg-dark-section {
+  position: relative;
+}
+.background-image {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("../../../../../assets/images/backgrounds/bgsteps.jpg");
+}
+
+.section-work-progress .heading-title {
+  margin-bottom: 0;
+}
+.text-left, .text-left.small-heading {
+  text-align: left;
+}
+
+.bg-dark-section .heading-title h2 {
+  color: #fff;
+}
+
+.heading-title h2 {
+  color: #424242;
+  font-size: 41px;
+  text-transform: uppercase;
+  line-height: inherit;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.small-heading h2 {
+  font-size: 27px;
+  letter-spacing: 1px;
+}
+
+.text-left h2:after, .text-left.small-heading h2:after {
+  margin: 13px 0 18px;
+}
+.small-heading h2:after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 55px;
+  background-color: #c69c6d;
+  margin: 0 auto;
+  margin-top: 13px;
+  margin-bottom: 18px;
+}
+
+.icon-progress {
+  text-align: center;
+  background-color: #0000007a;
+  padding: 17px;
+  border-radius: 30px;
+}
+
+.bg-dark-section .icon-progress i {
+  color: #fff;
+}
+.icon-progress i {
+  font-size: 65px;
+  line-height: 65px !important;
+}
+
+.icon-progress p {
+  font-size: 1em;
+  margin-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+.bg-dark-section p {
+  color: #eee;
+}
+p {
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+.bg-dark-section .heading-title h2 {
+  color: #39464f;
 }

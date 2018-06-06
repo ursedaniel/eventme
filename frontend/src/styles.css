@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+.content-wrapper {
+  overflow: hidden !important;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  text-rendering: optimizeLegibility;
+  font-weight: 300;
+  line-height: 1.6;
+}

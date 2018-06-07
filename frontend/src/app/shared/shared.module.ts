@@ -4,6 +4,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import {RouterModule} from "@angular/router";
+import {PathprefixService} from "./services/pathprefix.service";
 
 @NgModule({
   imports: [
@@ -14,6 +15,9 @@ import {RouterModule} from "@angular/router";
     SidebarComponent,
     FooterComponent,
     NavbarComponent
+  ],
+  providers: [
+    PathprefixService,
   ],
   exports: [
     SidebarComponent,

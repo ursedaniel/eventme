@@ -7,6 +7,8 @@ import {SharedModule} from "./shared/shared.module";
 import {RouterModule} from "@angular/router";
 import {routing} from "./routes";
 import {DashboardModule} from "./routes/dashboard/dashboard.module";
+import {HttpClientModule} from "@angular/common/http";
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -17,7 +19,7 @@ import {DashboardModule} from "./routes/dashboard/dashboard.module";
     BrowserModule,
     SharedModule,
     RouterModule,
-    DashboardModule,
+    HttpClientModule,
     routing
   ],
   providers: [],

@@ -1,0 +1,57 @@
+.panel {
+  font-size: 1.5em;
+  padding-left: 20px;
+}
+
+.align-center {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.red {
+  background-color: red;
+  color: white;
+  padding-right: 10px;
+}
+
+.margin-left {
+  margin-left: 55px;
+}
+
+.margin-bottom {
+  margin-bottom: 20px;
+}
+
+.checker input[type=checkbox], .choice input[type=radio] {
+  border: none;
+  background: none;
+  display: -moz-inline-box;
+  display: inline-block;
+  margin: 0;
+  vertical-align: top;
+  cursor: pointer;
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  z-index: 2;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+.checker span:after {
+  content: "\e600";
+  font-family: 'icomoon';
+  font-size: 16px;
+  line-height: 1;
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+.panel {
+  padding-left: 0 !important;
+}

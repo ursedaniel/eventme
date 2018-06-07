@@ -1,11 +1,10 @@
 import {ModuleWithProviders} from "@angular/core";
 import {RouterModule} from "@angular/router";
-import {DashboardComponent} from "./routes/dashboard/components/dashboard/dashboard.component";
 
 export const routes = [
-
-  {path: '', redirectTo: '/home', pathMatch: 'full'},
-  {path: 'home', component: DashboardComponent},
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: 'home', loadChildren: './routes/dashboard/dashboard.module#DashboardModule'},
+  {path: 'auth', loadChildren: './routes/authentication/authentication.module#AuthenticationModule'},
   // Not lazy-loaded routes
   // { path: 'login', component: LoginComponent },
   // { path: 'register', component: RegisterComponent },
@@ -16,7 +15,7 @@ export const routes = [
   // {path: '500', component: Error500Component},
 
   // Not found
-  {path: '**', component: DashboardComponent}
+  {path: '**',redirectTo: 'home', pathMatch: 'full'}
 
 ];
 

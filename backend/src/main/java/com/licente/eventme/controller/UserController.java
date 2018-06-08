@@ -10,21 +10,24 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController("/users")
-@RequestMapping("/users")
+@RestController("")
+@RequestMapping("")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value="/users",method = RequestMethod.GET)
     public List<UserVO> getAllUsers() {
         return userService.getAllUsers();
     }
 
-    @RequestMapping(method = RequestMethod.POST)
-    public int getUser(@RequestBody UserVO userVO) {
-        return userService.getUser(userVO);
+    @RequestMapping(value="/register",method = RequestMethod.POST)
+    public int registerUser(@RequestBody UserVO userVO) {
+        return userService.registerUser(userVO);
     }
+
+    @RequestMapping(value="/login",method = RequestMethod.POST)
+    public int loginUser(@RequestBody UserVO userVO) { return userService.loginUser(userVO);}
 }
 

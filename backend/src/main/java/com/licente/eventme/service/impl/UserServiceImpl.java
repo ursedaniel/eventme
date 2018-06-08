@@ -1,5 +1,6 @@
 package com.licente.eventme.service.impl;
 
+import com.licente.eventme.exception.BusinessException;
 import com.licente.eventme.model.User;
 import com.licente.eventme.repository.UserRepository;
 import com.licente.eventme.service.UserService;
@@ -15,8 +16,10 @@ import java.util.stream.Collectors;
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Autowired private UserRepository userRepository;
-    @Autowired private UserConverter userConverter;
+    @Autowired
+    private UserRepository userRepository;
+    @Autowired
+    private UserConverter userConverter;
 
     private List<UserVO> convertToVO(List<User> list) {
         return list.stream().map(userConverter::toVO).collect(Collectors.toList());
@@ -28,9 +31,27 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int getUser(UserVO userVO) {
+    public int registerUser(UserVO userVO) {
         User user = userConverter.fromVO(userVO);
-        user.setPassword(EncodeUtils.encodeUTF8(userVO.getPassword()));
-        return userRepository.save(user).getId();
+        User findUser = userRepository.findByEmail(userVO.getEmail());
+        if (findUser == null) {
+            user.setPassword(EncodeUtils.encodeUTF8(userVO.getPassword()));
+            return userRepository.save(user).getId();
+        }
+        else
+            throw new BusinessException("Email already in use!");
+    }
+
+    @Override
+    public int loginUser(UserVO userVO) {
+        User user = userRepository.findByEmail(userVO.getEmail());
+        if (user == null) {
+            throw new BusinessException("Wrong email/password!");
+        } else {
+            if (EncodeUtils.encodeUTF8(userVO.getPassword()).equals(user.getPassword()))
+                return user.getId();
+            else
+                throw new BusinessException("Wrong email/password!");
+        }
     }
 }

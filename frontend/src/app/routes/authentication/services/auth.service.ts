@@ -4,7 +4,8 @@ import 'rxjs/add/operator/map';
 import {PathprefixService} from '../../../shared/services/pathprefix.service';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import 'rxjs/Rx' ;
-import {SearchParams} from '../../../shared/models/SearchParams';
+import {SearchParams} from "../../../shared/modals/SearchParams";
+import {User} from "../models/User";
 
 
 @Injectable()
@@ -12,19 +13,24 @@ export class AuthService {
   private headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
   private search: HttpParams;
 
-  private loginUrl: string = this.pathprefixService.prefix + '/products';
-  private registerUrl: string = this.pathprefixService.prefix + '/products';
+  private loginUrl: string = this.pathprefixService.prefix + '/login';
+  private registerUrl: string = this.pathprefixService.prefix + '/register';
 
   constructor(private http: HttpClient, private pathprefixService: PathprefixService) {
     this.http = http;
   }
 
-  //
   // login(product) {
   //   return this.http.put(this.productsUrl + "/" + product.id, JSON.stringify(product), {
   //     headers: this.headers,
   //   }).map((response) => <any>response);
   // }
+
+  login(user: User) {
+    return this.http.post(this.loginUrl, user, {
+      headers: this.headers,
+    }).map((response) => <any>response);
+  }
 
   // getManufacturers() {
   //   return this.http.get(this.manufacturersUrl)

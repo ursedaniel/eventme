@@ -8,5 +8,7 @@ public interface UserService {
 
     List<UserVO> getAllUsers();
 
-    int getUser(UserVO userVO);
+    int registerUser(UserVO userVO);
+
+    int loginUser(UserVO userVO);
 }

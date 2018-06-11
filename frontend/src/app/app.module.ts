@@ -9,6 +9,7 @@ import {routing} from "./routes";
 import {DashboardModule} from "./routes/dashboard/dashboard.module";
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
+import {AuthService} from "./routes/authentication/services/auth.service";
 
 
 @NgModule({
@@ -22,7 +23,7 @@ import {FormsModule} from "@angular/forms";
     HttpClientModule,
     routing
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

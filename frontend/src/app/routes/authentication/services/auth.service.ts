@@ -6,12 +6,15 @@ import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import 'rxjs/Rx' ;
 import {SearchParams} from "../../../shared/modals/SearchParams";
 import {User} from "../models/User";
+import {Subject} from "rxjs/Subject";
 
 
 @Injectable()
 export class AuthService {
   private headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
   private search: HttpParams;
+  isLogged = new Subject<boolean>();
+
 
   private loginUrl: string = this.pathprefixService.prefix + '/login';
   private registerUrl: string = this.pathprefixService.prefix + '/register';
@@ -19,6 +22,11 @@ export class AuthService {
   constructor(private http: HttpClient, private pathprefixService: PathprefixService) {
     this.http = http;
   }
+
+  setLogged(value: boolean) {
+    this.isLogged.next(value);
+  }
+
 
   // login(product) {
   //   return this.http.put(this.productsUrl + "/" + product.id, JSON.stringify(product), {

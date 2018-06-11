@@ -1,6 +1,6 @@
 <div class="navbar navbar-inverse">
   <div class="navbar-header">
-    <a class="navbar-brand"><img src="assets/images/logo.png" alt=""></a>
+    <a class="navbar-brand" routerLink="/home"><img src="assets/images/logo.png" alt=""></a>
 
     <ul class="nav navbar-nav visible-xs-block">
       <!--<li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>-->
@@ -16,7 +16,9 @@
 
 
     <ul class="nav navbar-nav navbar-right">
-      <li class=""><a routerLink="/auth">Sign In</a></li>
+      <li routerLinkActive="active"><a routerLink="/home">Home</a></li>
+      <li routerLinkActive="active"><a routerLink="/auth" *ngIf="!isLogged">Sign In</a></li>
+      <li routerLinkActive="active"><a routerLink="/profile" *ngIf="isLogged">Profile</a></li>
       <li class="dropdown language-switch">
         <a class="dropdown-toggle" data-toggle="dropdown">
           <img src="assets/images/flags/gb.png" class="position-left" alt="">
@@ -33,7 +35,7 @@
         </ul>
       </li>
 
-      <li class="dropdown">
+      <li class="dropdown" *ngIf="isLogged">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
           <i class="icon-bubbles4"></i>
           <span class="visible-xs-inline-block position-right">Messages</span>
@@ -124,10 +126,10 @@
         </div>
       </li>
 
-      <li class="dropdown dropdown-user">
+      <li class="dropdown dropdown-user" *ngIf="isLogged">
         <a class="dropdown-toggle" data-toggle="dropdown">
           <img src="assets/images/placeholder.jpg" alt="">
-          <span>Victoria</span>
+          <span>Daniel</span>
           <i class="caret"></i>
         </a>
 
@@ -138,7 +140,7 @@
             Messages</a></li>
           <li class="divider"></li>
           <li><a href="#"><i class="icon-cog5"></i> Account settings</a></li>
-          <li (click)="logout()"><a href="#"><i class="icon-switch2"></i> Logout</a></li>
+          <li (click)="logout()"><a routerLink="/home"><i class="icon-switch2"></i> Logout</a></li>
         </ul>
       </li>
     </ul>

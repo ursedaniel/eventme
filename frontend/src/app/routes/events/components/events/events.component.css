@@ -1,0 +1,3 @@
+.thumb img:not(.media-preview) {
+  height: 32vh !important;
+}

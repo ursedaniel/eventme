@@ -18,7 +18,17 @@
     <ul class="nav navbar-nav navbar-right">
       <li routerLinkActive="active"><a routerLink="/home">Home</a></li>
       <li routerLinkActive="active"><a routerLink="/auth" *ngIf="!isLogged">Sign In</a></li>
-      <li routerLinkActive="active"><a routerLink="/profile" *ngIf="isLogged">Profile</a></li>
+      <li class="dropdown" routerLinkActive="active" *ngIf="isLogged">
+        <a class="dropdown-toggle" data-toggle="dropdown">
+          Events
+          <span class="caret"></span>
+        </a>
+
+        <ul class="dropdown-menu">
+          <li><a routerLink="/events"> <i class="icon-ticket"></i>My events</a></li>
+          <li><a > <i class="icon-eye-plus"></i>Add event</a></li>
+        </ul>
+      </li>
       <li class="dropdown language-switch">
         <a class="dropdown-toggle" data-toggle="dropdown">
           <img src="assets/images/flags/gb.png" class="position-left" alt="">
@@ -126,7 +136,7 @@
         </div>
       </li>
 
-      <li class="dropdown dropdown-user" *ngIf="isLogged">
+      <li routerLinkActive="active" class="dropdown dropdown-user" *ngIf="isLogged">
         <a class="dropdown-toggle" data-toggle="dropdown">
           <img src="assets/images/placeholder.jpg" alt="">
           <span>Daniel</span>
@@ -134,12 +144,11 @@
         </a>
 
         <ul class="dropdown-menu dropdown-menu-right">
-          <li><a href="#"><i class="icon-user-plus"></i> My profile</a></li>
           <li><a href="#"><i class="icon-coins"></i> My balance</a></li>
           <li><a href="#"><span class="badge bg-teal-400 pull-right">58</span> <i class="icon-comment-discussion"></i>
             Messages</a></li>
           <li class="divider"></li>
-          <li><a href="#"><i class="icon-cog5"></i> Account settings</a></li>
+          <li><a routerLink="/profile"><i class="icon-cog5"></i> Account settings</a></li>
           <li (click)="logout()"><a routerLink="/home"><i class="icon-switch2"></i> Logout</a></li>
         </ul>
       </li>

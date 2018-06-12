@@ -6,6 +6,7 @@ export const routes = [
   {path: 'home', loadChildren: './routes/dashboard/dashboard.module#DashboardModule'},
   {path: 'auth', loadChildren: './routes/authentication/authentication.module#AuthenticationModule'},
   {path: 'profile', loadChildren: './routes/profile/profile.module#ProfileModule'},
+  {path: 'events', loadChildren: './routes/events/events.module#EventsModule'},
   // Not lazy-loaded routes
   // { path: 'login', component: LoginComponent },
   // { path: 'register', component: RegisterComponent },

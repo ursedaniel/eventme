@@ -16,20 +16,20 @@
 
 
     <ul class="nav navbar-nav navbar-right">
-      <li routerLinkActive="active"><a routerLink="/home">Home</a></li>
-      <li routerLinkActive="active"><a routerLink="/auth" *ngIf="!isLogged">Sign In</a></li>
-      <li class="dropdown" routerLinkActive="active" *ngIf="isLogged">
+      <li class="li-hover" routerLinkActive="active"><a routerLink="/home"><i class="icon-home2 mt-icon"></i> Home</a></li>
+      <li class="li-hover" routerLinkActive="active"><a routerLink="/auth" *ngIf="!isLogged">Sign In</a></li>
+      <li class="dropdown li-hover" routerLinkActive="active" *ngIf="isLogged">
         <a class="dropdown-toggle" data-toggle="dropdown">
-          Events
+          <i class="icon-newspaper mt-icon"></i> Events
           <span class="caret"></span>
         </a>
 
         <ul class="dropdown-menu">
-          <li><a routerLink="/events"> <i class="icon-ticket"></i>My events</a></li>
-          <li><a > <i class="icon-eye-plus"></i>Add event</a></li>
+          <li class="li-hover"><a routerLink="/events"> <i class="icon-ticket"></i>My events</a></li>
+          <li class="li-hover"><a > <i class="icon-eye-plus"></i>Add event</a></li>
         </ul>
       </li>
-      <li class="dropdown language-switch">
+      <li class="li-hover dropdown language-switch">
         <a class="dropdown-toggle" data-toggle="dropdown">
           <img src="assets/images/flags/gb.png" class="position-left" alt="">
           English
@@ -45,16 +45,16 @@
         </ul>
       </li>
 
-      <li class="dropdown" *ngIf="isLogged">
+      <li class="dropdown li-hover" *ngIf="isLogged">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
           <i class="icon-bubbles4"></i>
-          <span class="visible-xs-inline-block position-right">Messages</span>
+          <span class="visible-xs-inline-block position-right">Notifications</span>
           <span class="badge bg-warning-400">2</span>
         </a>
 
         <div class="dropdown-menu dropdown-content width-350">
           <div class="dropdown-content-heading">
-            Messages
+            Notifications
             <ul class="icons-list">
               <li><a href="#"><i class="icon-compose"></i></a></li>
             </ul>
@@ -136,19 +136,19 @@
         </div>
       </li>
 
-      <li routerLinkActive="active" class="dropdown dropdown-user" *ngIf="isLogged">
+      <li class="dropdown dropdown-user li-hover" *ngIf="isLogged">
         <a class="dropdown-toggle" data-toggle="dropdown">
-          <img src="assets/images/placeholder.jpg" alt="">
+          <img src="assets/images/ui/user.png" alt="">
           <span>Daniel</span>
           <i class="caret"></i>
         </a>
 
         <ul class="dropdown-menu dropdown-menu-right">
-          <li><a href="#"><i class="icon-coins"></i> My balance</a></li>
+          <li><a href="#"><i class="icon-coins"></i> Purchases</a></li>
           <li><a href="#"><span class="badge bg-teal-400 pull-right">58</span> <i class="icon-comment-discussion"></i>
-            Messages</a></li>
+            Notifications</a></li>
           <li class="divider"></li>
-          <li><a routerLink="/profile"><i class="icon-cog5"></i> Account settings</a></li>
+          <li><a routerLink="/profile"><i class="icon-cog5"></i> Profile settings</a></li>
           <li (click)="logout()"><a routerLink="/home"><i class="icon-switch2"></i> Logout</a></li>
         </ul>
       </li>

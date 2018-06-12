@@ -1,0 +1,8 @@
+.mt-icon {
+  margin-top: -3px !important;
+  padding-right: 5px;
+}
+
+.li-hover:hover {
+  background-color: #944800;
+}

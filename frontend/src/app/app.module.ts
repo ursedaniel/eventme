@@ -10,17 +10,19 @@ import {DashboardModule} from "./routes/dashboard/dashboard.module";
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import {AuthService} from "./routes/authentication/services/auth.service";
+import {FacebookModule} from 'ngx-facebook';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     SharedModule,
     RouterModule,
     HttpClientModule,
+    FacebookModule.forRoot(),
     routing
   ],
   providers: [AuthService],

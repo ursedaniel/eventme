@@ -8,9 +8,11 @@
   <!--Logout-->
 <!--</button>-->
 
+
+<input type="file" accept="image/*" (change)="addMedia($event)">
+
 <button (click)="tweet()" class="btn btn-lg btn-primary btn-block">
   Tweet
 </button>
 
 
-<input type="file" accept="image/*" (change)="onUploadChange($event)">

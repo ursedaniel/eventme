@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FacebookService, LoginResponse} from 'ngx-facebook';
+import {EventForm} from "../../models/EventForm";
 
 declare var Codebird;
 
@@ -18,8 +19,8 @@ export class InserteventComponent implements OnInit {
   tweetId: number;
   fileName: string = "No file selected";
   steps = [
-    {active: true, completed: true, name: "Details"},
-    {active: false, completed: false, name: "Form"},
+    {active: false, completed: false, name: "Details"},
+    {active: true, completed: false, name: "Form"},
     {active: false, completed: false, name: "Payment"},
     {active: false, completed: false, name: "Finish"},
   ];
@@ -28,24 +29,39 @@ export class InserteventComponent implements OnInit {
   expiration: any;
   cvc: any;
 
+  eventForm: Array<EventForm> = new Array<EventForm>();
+
   questionTypes = [
     "Short answer",
     "Paragraph",
-    "Multiple choices",
+    "Multiple answers",
     "Checkboxes",
     "Dropdown"
   ];
 
   constructor(private fb: FacebookService) {
-    // fb.init({
-    //   appId: '816481165203943',
-    //   version: 'v2.9'
-    // });
+    this.eventForm.push( {type: "Type",question:"", answers: []});
   }
 
 
   ngOnInit() {
 
+  }
+
+  chooseType(index,type) {
+    this.eventForm[index].type = type;
+    this.eventForm[index].answers = [];
+    if(type == "Multiple answers")
+      this.eventForm[index].answers.push("Answer no. 1");
+  }
+
+  addMultiple(index) {
+    let id = this.eventForm[index].answers.length + 1;
+    this.eventForm[index].answers.push("Answer no. " + id);
+  }
+
+  addQuestion() {
+    this.eventForm.push( {type: "Type",question:"", answers: []});
   }
 
   addMedia(media) {

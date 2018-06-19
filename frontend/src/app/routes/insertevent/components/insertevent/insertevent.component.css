@@ -165,6 +165,12 @@ ul {
   vertical-align: middle;
 }
 
+.right-grid i {
+  color: black;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
 .left-side {
   float: left;
 }
@@ -458,4 +464,108 @@ Credits
 
 .no-margin-left {
   margin-left: 0px !important;
+}
+
+.checkbox label {
+  padding-left: 28px;
+}
+
+.checkbox .checker, .checkbox-inline .checker {
+  position: absolute;
+  top: 1px;
+  left: 0;
+}
+
+.checker, .checker span, .checker input {
+  width: 18px;
+  height: 18px;
+}
+
+.checker {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+.checker span {
+  color: #455A64;
+  border: 2px solid #607D8B;
+  display: inline-block;
+  text-align: center;
+  position: relative;
+  border-radius: 2px;
+}
+
+.checker span {
+  -webkit-transition: border-color ease-in-out 0.15s;
+  -o-transition: border-color ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s;
+}
+
+.checker, .checker span, .checker input {
+  width: 18px;
+  height: 18px;
+}
+
+.checker {
+  cursor: pointer;
+}
+
+.checker input[type="checkbox"], .choice input[type="radio"] {
+  border: none;
+  background: none;
+  display: -moz-inline-box;
+  display: inline-block;
+  margin: 0;
+  vertical-align: top;
+  cursor: pointer;
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  z-index: 2;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+.checker, .checker span, .checker input {
+  width: 18px;
+  height: 18px;
+}
+
+.checker span.checked::after {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+
+.checker span::after {
+  content: "\e600";
+  font-family: 'icomoon';
+  font-size: 16px;
+  line-height: 1;
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+.checker span::after {
+  transition: all ease-in-out 0.15s;
+}
+
+.checker span {
+  color: #455A64;
+  text-align: center;
+  top: 9px;
+}
+
+.checkbox {
+  margin-bottom: 0;
+}
+
+.checkbox input {
+  margin-left: 10px;
 }
